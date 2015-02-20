@@ -1,0 +1,26 @@
+<tool id="sort_bam" name="sort_bam" version="1.1">
+      <description>Sort bam file based on chromosomal coordinates.</description>
+      <requirements>
+        <requirement type="set_environment">LINKYX_PATH</requirement>
+        <requirement type="set_environment">SAMTOOLS</requirement>
+        <requirement type="package" version="0.1.19">samtools-fpic</requirement>
+        <requirement type="package" version="1.6.922">bioperl</requirement>
+      </requirements>
+      <command interpreter="bash">sort_bam.sh $output $input1</command>
+      <inputs>
+        <param format="bam" name="input1" type="data" label="Alignment file"/>
+      </inputs>
+      <outputs>
+        <data format="bam" name="output" />
+      </outputs>
+  
+     <tests>
+       <test>
+       </test>
+     </tests>
+   
+     <help>
+   Sort bam file based on chromosomal coordinates.
+     </help>
+   
+   </tool>

@@ -1,0 +1,27 @@
+<tool id="reformat_trinity_header" name="reformat_trinity_header" version="1.1">
+      <description>Reformat Trinity header</description>
+      <requirements>
+        <requirement type="set_environment">LINKYX_PATH</requirement>
+        <requirement type="set_environment">SAMTOOLS</requirement>
+        <requirement type="package" version="0.1.19">samtools-fpic</requirement>
+        <requirement type="package" version="1.6.922">bioperl</requirement>
+      </requirements>
+      <command interpreter="bash">LINKYX_reformat_trinity_header.sh $output $input1</command>
+      <inputs>
+        <param format="fasta" name="input1" type="data" label="Trinity.fasta"/>
+      </inputs>
+      <outputs>
+        <data format="fasta" name="output" />
+      </outputs>
+  
+     <tests>
+       <test>
+        <output name="out_file1" file="Trinity.fasta"/>
+       </test>
+     </tests>
+   
+     <help>
+   Reformat Trinity header, keep only part until first space.
+     </help>
+   
+   </tool>

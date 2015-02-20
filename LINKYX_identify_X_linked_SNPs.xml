@@ -1,0 +1,40 @@
+<tool id="LINKYX_X" name="LINKYX_X" version="1.1">
+      <description>Identify X linked contigs from cross</description>
+      <requirements>
+        <requirement type="set_environment">LINKYX_PATH</requirement>
+        <requirement type="set_environment">SAMTOOLS</requirement>
+        <requirement type="package" version="0.1.19">samtools-fpic</requirement>
+        <requirement type="package" version="1.6.922">bioperl</requirement>
+      </requirements>
+      <command interpreter="bash">LINKYX_identify_X_linked_SNPs.sh $output $input1 $input2 $input3 $input4 $input5 $input6 $input7 $input8 $input9 $output1 $output2 $output3 $output4 $output5</command>
+      <inputs>
+        <param format="fasta" name="input1" type="data" label="Reference"/>
+        <param format="bam" name="input2" type="data" label="Mother - Binary alignment format"/>
+        <param format="vcf" name="input3" type="data" label="Mother - Variant call format"/>
+        <param format="bam" name="input4" type="data" label="Father - Binary alignment format"/>
+        <param format="vcf" name="input5" type="data" label="Father - Variant call format"/>
+        <param format="bam" name="input6" type="data" label="Daughter - Binary alignment format"/>
+        <param format="vcf" name="input7" type="data" label="Daughter - Variant call format"/>
+        <param format="bam" name="input8" type="data" label="Son - Binary alignment format"/>
+        <param format="vcf" name="input9" type="data" label="Son - Variant call format"/>
+      </inputs>
+      <outputs>
+        <data format="txt" name="output" />
+        <data format="fasta" name="output1" label="X_sequences.fasta " />
+        <data format="bam" name="output2" label="Mother bam file - X linked " />
+        <data format="bam" name="output3" label="Father bam file - X linked " />
+        <data format="bam" name="output4" label="Daughter bam file - X linked " />
+        <data format="bam" name="output5" label="Son bam file - X linked " />
+      </outputs>
+  
+     <tests>
+       <test>
+        <output name="out_file1" file="X_results.txt"/>
+       </test>
+     </tests>
+   
+     <help>
+   This tool identifies X linked contigs from cross (represented as 4 VCF files).
+     </help>
+   
+   </tool>

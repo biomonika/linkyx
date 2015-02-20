@@ -1,0 +1,28 @@
+<tool id="LINKYX_mpileup" name="LINKYX_mpileup" version="1.1">
+      <description>Run mpileup with LINKYX-specific parameters</description>
+      <requirements>
+        <requirement type="set_environment">LINKYX_PATH</requirement>
+        <requirement type="set_environment">SAMTOOLS</requirement>
+        <requirement type="package" version="0.1.19">samtools-fpic</requirement>
+        <requirement type="package" version="1.6.922">bioperl</requirement>
+      </requirements>
+      <command interpreter="bash">LINKYX_mpileup_wrapper.sh $output $input1 $input2</command>
+      <inputs>
+        <param format="bam" name="input1" type="data" label="Alignment file"/>
+        <param format="fasta" name="input2" type="data" label="Reference file"/>
+      </inputs>
+      <outputs>
+        <data format="vcf" name="output" />
+      </outputs>
+  
+     <tests>
+       <test>
+        <output name="out_file1" file="alignent_mpileup.txt"/>
+       </test>
+     </tests>
+   
+     <help>
+   Run mpileup with LINKYX-specific parameters
+     </help>
+   
+   </tool>
